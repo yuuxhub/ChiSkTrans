@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-
+<?php
+require_once('sql.php');
+?>
 <html>
   <head>
     <meta charset="utf-8">
@@ -30,8 +32,57 @@
         </div>
       </div>
     </header>
+    <!--// DB接続-->
+    <?php $mysqli = dbOpen(); ?>
+    <div class="todo-wrapper">
+      <div class="container">
 
-<footer>
+          <?php
+            //STAGEのMAXIDを調べる $rowMaxId['maxStage']
+            $sql = "SELECT max(id) As maxStage FROM mst_stage";
+            $result = $mysqli->query($sql);
+            $rowMaxId = $result->fetch_assoc();
+            $result->close();
+            //STAGEごとのコンテンツ数、STAGE名を調べる　$rowCount['stageCont']　$rowCount['stage']
+          for($i = 1 ;$i<= $rowMaxId['maxStage'] ; $i++){
+            $sql = "SELECT Count(inf_content.id) As stageCont, mst_stage.stage from inf_content join mst_stage on inf_content.stageId = mst_stage.id WHERE mst_stage.Id=".$i;
+            $result = $mysqli->query($sql);
+            $rowCount = $result->fetch_assoc();
+            $result->close();
+            //もしコンテンツがあるならば
+          if($rowCount['stageCont'] > 0) { ?>
+          <div class="todo-Title">
+            <p><?php echo $rowCount['stage'] ?></p>
+          </div>
+          <?php
+           //コンテンツ数分、チェックリストとコンテンツを表示する
+            for($j = 1;$j<=$rowCount['stageCont'];$j++){
+              //コンテンツを連想配列で取得する $rowCont
+              $sql = "SELECT inf_content.content,inf_content.Id FROM inf_content WHERE inf_content.stageId={$i} order by inf_content.id asc";
+              $result = array();
+              $result = $mysqli->query($sql);
+              $rowCont = $result->fetch_assoc();
+              $result->close(); ?>
+              <input name="checkDb[]" type="checkbox" value=" <?php echo $rowCont["Id"] ?> ">
+              <div class="todo-content">
+                <p><?php echo $rowCont['content'] ?></p>
+              </div>
+              <?php
+            }
+           }
+         }
+         ?>
+            <?php
+            // DB接続を閉じる
+            $mysqli->close();
+            ?>
+
+
+
+    </div>
+  </div>
+
+  <footer>
     <div class="container">
       <img src="http://localhost/img/logo_resize.png">
     </div>

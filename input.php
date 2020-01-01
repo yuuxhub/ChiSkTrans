@@ -16,8 +16,7 @@
           <a href="http://localhost/ChiSkTrans/main.html">
           <img class="logo" src="http://localhost/img/logo_yoko_resize.png">
         </a>
-        </div>
-        <!--   -->
+      </div>
         <div>
           <span class="fa fa-bars menu-icon"></span>
         </div>
@@ -30,6 +29,9 @@
         </div>
       </div>
     </header>
+
+
+
 
 <footer>
     <div class="container">

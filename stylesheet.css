@@ -32,6 +32,17 @@ a {
   opacity: 0.8;
 }
 
+.todo-wrapper {
+  padding: 80px 0 100px 0;
+  background-color: rgb(255, 213, 213);
+  background-size: cover;
+  color: BLACK;
+  text-align: center;
+}
+
+
+
+
 .btn {
   position: relative;
   display: inline-block;
@@ -50,43 +61,6 @@ a {
 .fa {
   margin-right: 5px;
 }
-
-header {
-  height: 65px;
-  width: 100%;
-  background-color: rgba(34, 49, 52, 0.9);
-  position :fixed;
-  top: 0;
-  z-index: 10;
-}
-
-.logo {
- height: 65px;
-//  margin-top: 20px;
-}
-
-.header-left {
-  float: left;
-}
-
-.header-right {
-  float: right;
-  margin-right: 10px;
-}
-
-.header-right a {
-  line-height: 65px;
-  padding: 0 25px;
-  color: white;
-  display: block;
-  float: left;
-  transition: all 0.5s;
-}
-
-.header-right a:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-}
-
 
 .heading {
   padding-top: 30px;
@@ -136,6 +110,75 @@ header {
   opacity: 0.7;
 }
 
+/*.todo {
+  float: left;
+  width: 100%;
+}
+
+.todo Title{
+  float: left;
+  width: 100%;
+}
+
+.todo content{
+
+}
+*/
+
+
+
+/*----------ヘッダ部----------*/
+
+header {
+  height: 65px;
+  width: 100%;
+  background-color: rgba(34, 49, 52, 0.9);
+  position :fixed;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+ height: 65px;
+//  margin-top: 20px;
+}
+
+.header-left {
+  float: left;
+}
+
+.header-right {
+  float: right;
+  margin-right: 10px;
+}
+
+.header-right a {
+  line-height: 65px;
+  padding: 0 25px;
+  color: white;
+  display: block;
+  float: left;
+  transition: all 0.5s;
+}
+
+.header-right a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.menu-icon {
+  color: white;
+  float: right;
+  font-size: 25px;
+  padding: 21px 0;
+
+  display:none;
+}
+
+/*^^^^^^^^^^ヘッダ部^^^^^^^^^^*/
+
+
+/*----------フッター部----------*/
+
 footer img {
   width: 125px;
 }
@@ -150,11 +193,4 @@ footer {
   padding-bottom: 20px;
 }
 
-.menu-icon {
-  color: white;
-  float: right;
-  font-size: 25px;
-  padding: 21px 0;
-
-  display:none;
-}
+/*^^^^^^^^^^フッター部^^^^^^^^^^*/
