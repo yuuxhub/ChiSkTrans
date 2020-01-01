@@ -28,38 +28,22 @@ a {
   background-size: cover;
   color: white;
   text-align: center;
-}
-
-.top-wrapper h1 {
-  opacity: 0.7;
-  font-size: 45px;
-  letter-spacing: 5px;
-}
-
-.top-wrapper p {
-  opacity: 0.7;
-}
-
-.btn-wrapper {
-  text-align: center;
-  margin: 20px 0;
-}
-
-.btn-wrapper p {
-  margin: 10px 0;
+  opacity: 0.8;
 }
 
 .btn {
-  padding: 8px 24px;
-  color: white;
+  position: relative;
   display: inline-block;
   opacity: 0.8;
-  border-radius: 4px;
-  text-align: center;
 }
 
 .btn:hover {
   opacity: 1;
+}
+
+.btn:hover p{
+  color: white;
+  font-size:40px;
 }
 
 .fa {
@@ -76,8 +60,8 @@ header {
 }
 
 .logo {
-  width: 80px;
-  margin-top: 20px;
+ height: 65px;
+//  margin-top: 20px;
 }
 
 .header-left {
@@ -86,7 +70,7 @@ header {
 
 .header-right {
   float: right;
-  margin-right: -25px;
+  margin-right: 10px;
 }
 
 .header-right a {
@@ -103,14 +87,6 @@ header {
 }
 
 
-.Item-wrapper {
-  padding-bottom: 80px;
-  padding-left: 5%;
-  padding-right: 5%;
-  background-color: #f7f7f7;
-  text-align: center;
-}
-
 .heading {
   padding-top: 30px;
   padding-bottom: 50px;
@@ -119,6 +95,7 @@ header {
 
 .heading h2 {
   font-weight: normal;
+  color : white;
 }
 
 .Item {
@@ -128,11 +105,15 @@ header {
 
 .Item-icon {
   position: relative;
+  width : 75%;
+  margin : 0 auto;
+  opacity : 1;
 }
 
 .Item-icon p {
+  //position : relative;
   position: absolute;
-  top: 44%;
+  top:30%;
   width: 100%;
   color: white;
   font-size: 30px;
@@ -143,30 +124,8 @@ header {
   display: inline-block;
   margin-top: 15px;
   font-size: 15px;
-  color: #b3aeb5;
-}
-
-.heading h3 {
-  font-weight: normal;
-}
-
-.message-wrapper {
-  border-bottom: 1px solid #eee;
-  padding-bottom: 80px;
-  text-align: center;
-}
-
-.message {
-  padding: 15px 40px;
-  background-color: #5dca88;
-  cursor: pointer;
-  box-shadow: 0 7px #1a7940;
-}
-
-.message:active {
-  position: relative;
-  top: 7px;
-  box-shadow: none;
+  color: white;
+  opacity: 0.7;
 }
 
 footer img {
