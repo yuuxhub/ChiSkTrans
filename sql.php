@@ -30,8 +30,26 @@ function dbSelect($sql,$mysqli){
   $result = $mysqli->query($sql);
   $row = $result->fetch_assoc();
   $result->close();
-  
+
   return $row ;
+}
+
+////////////////////////////////////////////////////
+//　関数名：dbCheckInsert();　※inf_check 専用
+//　役割　：引数の配列の内容をDBにINSERTする　
+//　引数　：$row (連想配列),$table（テーブル(文字列)）
+//　戻り値：$message（文字列）
+//　作成者：Y.Kimura
+////////////////////////////////////////////////////
+function dbInsert($check,$user,$mysqli){
+  for($i = 0;$i<count($check);$i++){
+    echo $check[$i] ;
+    $sql = "INSERT INTO inf_check (name,contentId,checkflag) VALUES({$user},{$check[$i]},1)";
+    $result = $mysqli->query($sql);
+}
+    $mysqli->commit();
+    $result->close();
+    return "登録完了しました" ;
 }
 
 ?>
