@@ -37,7 +37,11 @@ require_once('sql.php');
     <div class="todo-wrapper">
       <div class="container">
 
+
           <?php
+
+            $checkDb = array();
+
             //STAGEのMAXIDを調べる $rowMaxId['maxStage']
             $rowMaxId = dbSelect("SELECT max(id) As maxStage FROM mst_stage",$mysqli);
             //STAGEごとのコンテンツ数、STAGE名を調べる　$rowCount['stageCont']　$rowCount['stage']
@@ -56,8 +60,9 @@ require_once('sql.php');
                   //取得した連想配列の中身を表示する $rowCont['content']
                   while ($rowCont = $result->fetch_assoc()){ ?>
                   <form action ="" method = "POST">
-                  <input name="checkDb[]" type="checkbox" value=" <?php echo $rowCont["Id"] ?> ">
+                  <input name="checkDb[]" type="checkbox" value=" <?php echo $rowCont["Id"] ?> "/>
                   </form>
+
                   <!--内容-->
                   <div class="todo-content">
                     <p><?php echo $rowCont['content'] ?></p>
@@ -71,7 +76,7 @@ require_once('sql.php');
 
             <!--//チェックボックスの内容をDBにINSERTする-->
             <form action ="" method = "POST">
-              <input type = submit class = "checkInput" value = "登録" name = "input">
+              <input type = submit class = "checkInput" value = "登録" name = "input" />
             </form>
 
             <?php
@@ -79,6 +84,7 @@ require_once('sql.php');
                 if(isset($_POST['checkDb'])) { ?>
                 <p><?php echo dbInsert($_POST['checkDb'],"admin",$mysqli) ?>
                 <?php }else{ ?>
+                <?php var_dump($checkDb) ; ?>
                 <p> チェックが入っていません。</p>
             <?php  }
              }
