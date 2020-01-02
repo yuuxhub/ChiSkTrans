@@ -17,3 +17,21 @@ if ($mysqli->connect_error) {
 }
 return $mysqli ;
 }
+
+////////////////////////////////////////////////////
+//　関数名：dbSelect();
+//　役割　：引数のSQL文結果を連想配列として返す
+//　引数　：$sql (文字列)
+//　戻り値：$row（連想配列）
+//　作成者：Y.Kimura
+////////////////////////////////////////////////////
+
+function dbSelect($sql,$mysqli){
+  $result = $mysqli->query($sql);
+  $row = $result->fetch_assoc();
+  $result->close();
+  
+  return $row ;
+}
+
+?>
