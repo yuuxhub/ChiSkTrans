@@ -40,6 +40,21 @@ a {
   text-align: center;
 }
 
+.search-wrapper {
+  padding: 80px 0 100px 0;
+  background-color: rgb(193, 255, 255);
+  background-size: cover;
+  color: BLACK;
+  text-align: center;
+}
+
+.input-wrapper {
+  padding: 80px 0 100px 0;
+  background-color: rgb(255, 255, 196);
+  background-size: cover;
+  color: BLACK;
+  text-align: center;
+}
 
 
 
@@ -122,6 +137,13 @@ a {
 
 .todo content{
 
+}
+
+
+.form-item {
+  margin: 100px auto ;
+  padding: 20px 0 10px 0;
+  font-weight: bold;
 }
 
 

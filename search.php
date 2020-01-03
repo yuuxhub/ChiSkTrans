@@ -17,7 +17,6 @@
           <img class="logo" src="http://localhost/img/logo_yoko_resize.png">
         </a>
         </div>
-        <!--   -->
         <div>
           <span class="fa fa-bars menu-icon"></span>
         </div>
@@ -30,6 +29,13 @@
         </div>
       </div>
     </header>
+
+    <div class="search-wrapper">
+     <div class="container">
+
+     </div>
+    </div>
+
 
 <footer>
     <div class="container">
