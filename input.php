@@ -37,28 +37,6 @@ require_once('sql.php');
        <?php $mysqli = dbOpen(); ?>
        <form method="post" action="">
 
-               <div class="form-item">対象者</div>
-               <select name="people">
-                  <option value="未選択">選択してください</option>
-                  <?php
-                  $sql = "SELECT id As id ,people As people from mst_people";
-                  $result = $mysqli->query($sql);
-                    while ($rowPeople = $result->fetch_assoc()){
-                   echo  "<option value={$rowPeople["id"]}>{$rowPeople["people"]}</option>" ;
-                   }
-                   ?>
-                </select>
-
-
-               <div class="form-item">内容</div>
-               <textarea name="body"></textarea>
-
-               <div class="form-item">備考</div>
-               <textarea name="biko"></textarea>
-
-               <input type="submit" value="追加" name="input">
-
-
                <div class="form-item">工程</div>
                <select name="stage">
                  <option value="未選択">選択してください</option>
@@ -71,9 +49,8 @@ require_once('sql.php');
                   ?>
                </select>
 
-
                <div class="form-item">対象者</div>
-               <select name="content">
+               <select name="people">
                   <option value="未選択">選択してください</option>
                   <?php
                   $sql = "SELECT id As id ,people As people from mst_people";
@@ -84,19 +61,44 @@ require_once('sql.php');
                    ?>
                 </select>
 
-                <!--//入力された内容をDBにINSERTする-- >
-                <?php
-                  if(isset($_POST['input'])) {
-                    if(!(isset($_POST['stage'])&&(isset($_POST['people'])&&(isset($_POST['body'])&&(isset($_POST['biko'])) {
-                      echo <p>上記項目を全て入力してください</p> ;
-                    }
-              }else{
-                $sql = "INSERT INTO inf_content (stage,contentId,checkflag) VALUES({$user},{$check[$i]},1)";
-                $result = $mysqli->query($sql);
-                $mysqli->commit();
-               echo  <p> 登録しました</p> ;
-              }
+               <div class="form-item">内容</div>
+               <textarea name="body"></textarea>
 
+               <div class="form-item">備考</div>
+               <textarea name="biko"></textarea>
+
+               <div class="form-item">重要度</div>
+               <select name="priority">
+                  <option value="未選択">選択してください</option>
+                  <?php
+                    $rowPriority = array(1,2,3,4,5);
+                    for($i=0;$i<5;$i++){
+                   echo  "<option value=".($i+1).">{$rowPriority[$i]}</option>";
+                   }
+                   ?>
+                </select>
+
+
+               <input type="submit" value="追加" name="input">
+               <p><?php echo $_POST['stage'],$_POST['body'],$_POST['biko'],$_POST['people'],$_POST['priority'],$_POST['input']; ?></p>
+               <p><?php echo "INSERT INTO inf_content (stageId,content,biko,peopleId,priority) VALUES({$_POST['stage']},\"{$_POST['body']}\",\"{$_POST['biko']}\",{$_POST['people']},{$_POST['priority']})" ; ?>
+                <!--//入力された内容をDBにINSERTする-- >
+              <?php
+
+              if(!empty($_POST['input'])) {
+                //全ての項目が入力されていない場合（！全ての項目入力されている）
+                //  if(!(($_POST['stage']!="未選択")&&($_POST['people']!="未選択")&&(!empty($_POST['body'])&&(!empty($_POST['biko'])&&($_POST['people']!="未選択"))){
+                  //  echo "<p>上記項目を全て入力してください</p>" ;
+                $sql = "INSERT INTO inf_content (stageId,content,biko,peopleId,priority) VALUES({$_POST['stage']},\"{$_POST['body']}\",\"{$_POST['biko']}\",{$_POST['people']},{$_POST['priority']})";
+                $result = $mysqli->query($sql);
+                //$mysqli->commit();
+                $_POST['input'] = [] ; ?>
+                <p><?php echo $_POST['stage'],$_POST['body'],$_POST['biko'],$_POST['people'],$_POST['priority'],$_POST['input']; ?></p>
+               <p>登録しました</p>
+               <?php
+             }
+        // }
+             ?>
 
       </form>
 
