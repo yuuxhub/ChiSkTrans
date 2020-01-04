@@ -28,7 +28,7 @@ require_once('sql.php');
           <a href="todolist.php">TodoList</a>
           <a href="search.php">Search</a>
           <a href="input.php">Input</a>
-          <a href="#" class="login">Login</a>
+          <a href="login.php" class="login">Login</a>
         </div>
       </div>
     </header>
