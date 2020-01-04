@@ -36,8 +36,7 @@ require_once('sql.php');
     <?php $mysqli = dbOpen(); ?>
     <div class="todo-wrapper">
       <div class="container">
-
-
+            <form action ="" method = "POST">
           <?php
 
             $checkDb = array();
@@ -54,14 +53,13 @@ require_once('sql.php');
             <p><?php echo $rowCount['stage'] ?></p>
           </div>
           <?php
+
               //コンテンツを連想配列で取得する $rowCont
               $sql = "SELECT inf_content.content,inf_content.Id FROM inf_content WHERE inf_content.stageId={$i} order by inf_content.id asc";
               $result = $mysqli->query($sql);
                   //取得した連想配列の中身を表示する $rowCont['content']
-                  while ($rowCont = $result->fetch_assoc()){ ?>
-                  <form action ="" method = "POST">
-                  <input name="checkDb[]" type="checkbox" value=" <?php echo $rowCont["Id"] ?> "/>
-                  </form>
+                while ($rowCont = $result->fetch_assoc()){ ?>
+                  <input name="checkDb[]" type="checkbox" value="<?php echo $rowCont['Id']; ?> "/>
 
                   <!--内容-->
                   <div class="todo-content">
@@ -75,22 +73,22 @@ require_once('sql.php');
             ?>
 
             <!--//チェックボックスの内容をDBにINSERTする-->
-            <form action ="" method = "POST">
               <input type = submit class = "checkInput" value = "登録" name = "input" />
             </form>
 
+
             <?php
+
               if(isset($_POST['input'])) {
                 if(isset($_POST['checkDb'])) { ?>
-                <p><?php echo dbInsert($_POST['checkDb'],"admin",$mysqli) ?>
+                <p><?php echo dbInsert($_POST['checkDb'],"admin",$mysqli) ?></p>
                 <?php }else{ ?>
-                <?php var_dump($checkDb) ; ?>
                 <p> チェックが入っていません。</p>
             <?php  }
              }
 
             // DB接続を閉じる
-           $mysqli->close(); ?>
+            $mysqli->close(); ?>
     </div>
   </div>
 
