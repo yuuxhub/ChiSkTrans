@@ -83,12 +83,13 @@ require_once('sql.php');
                <p><?php echo $_POST['stage'],$_POST['body'],$_POST['biko'],$_POST['people'],$_POST['priority'],$_POST['input']; ?></p>
                <p><?php echo "INSERT INTO inf_content (stageId,content,biko,peopleId,priority) VALUES({$_POST['stage']},\"{$_POST['body']}\",\"{$_POST['biko']}\",{$_POST['people']},{$_POST['priority']})" ; ?>
                 <!--//入力された内容をDBにINSERTする-- >
-              <?php
 
+            <?php
               if(!empty($_POST['input'])) {
                 //全ての項目が入力されていない場合（！全ての項目入力されている）
-                //  if(!(($_POST['stage']!="未選択")&&($_POST['people']!="未選択")&&(!empty($_POST['body'])&&(!empty($_POST['biko'])&&($_POST['people']!="未選択"))){
-                  //  echo "<p>上記項目を全て入力してください</p>" ;
+                 if(!(($_POST['stage']!="未選択")&&($_POST['people']!="未選択")&&(!empty($_POST['body']))&&(!empty($_POST['biko']))&&($_POST['people']!="未選択"))){ ?>
+                    <p>上記項目を全て入力してください</p>
+              <?php
                 $sql = "INSERT INTO inf_content (stageId,content,biko,peopleId,priority) VALUES({$_POST['stage']},\"{$_POST['body']}\",\"{$_POST['biko']}\",{$_POST['people']},{$_POST['priority']})";
                 $result = $mysqli->query($sql);
                 //$mysqli->commit();
@@ -97,7 +98,7 @@ require_once('sql.php');
                <p>登録しました</p>
                <?php
              }
-        // }
+         }
              ?>
 
       </form>
