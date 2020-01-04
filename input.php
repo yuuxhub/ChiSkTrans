@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 require_once('sql.php');
+require_once('select.php');
 ?>
 <html>
   <head>
@@ -37,32 +38,11 @@ require_once('sql.php');
        <?php $mysqli = dbOpen(); ?>
        <form method="post" action="">
 
-
-
-
                <div class="form-item">工程</div>
-               <select name="stage">
-                 <option value="未選択">選択してください</option>
-                 <?php
-                 $sql = "SELECT id As id ,stage As stage from mst_stage";
-                 $result = $mysqli->query($sql);
-                   while ($rowStage = $result->fetch_assoc()){
-                  echo  "<option value={$rowStage["id"]}>{$rowStage["stage"]}</option>" ;
-                  }
-                  ?>
-               </select>
+                <select name="stage"><?php  selStage($mysqli); ?></select>
 
                <div class="form-item">対象者</div>
-               <select name="people">
-                  <option value="未選択">選択してください</option>
-                  <?php
-                  $sql = "SELECT id As id ,people As people from mst_people";
-                  $result = $mysqli->query($sql);
-                    while ($rowPeople = $result->fetch_assoc()){
-                   echo  "<option value={$rowPeople["id"]}>{$rowPeople["people"]}</option>" ;
-                   }
-                   ?>
-                </select>
+                <select name="people"><?php  selPeople($mysqli); ?></select>
 
                <div class="form-item">内容</div>
                <textarea name="body"></textarea>
@@ -71,15 +51,7 @@ require_once('sql.php');
                <textarea name="biko"></textarea>
 
                <div class="form-item">重要度</div>
-               <select name="priority">
-                  <option value="未選択">選択してください</option>
-                  <?php
-                    $rowPriority = array(1,2,3,4,5);
-                    for($i=0;$i<5;$i++){
-                   echo  "<option value=".($i+1).">{$rowPriority[$i]}</option>";
-                   }
-                   ?>
-                </select>
+               <select name="priority"><?php echo selPriority($mysqli) ?></select>
 
 
                <input type="submit" value="追加" name="input">
