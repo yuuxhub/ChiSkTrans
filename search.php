@@ -81,6 +81,10 @@ require_once('sql.php');
 
                   <input type="submit" value="検索" name="search">
 
+                  <?php
+                    if(!empty($_POST['search'])) { ?>
+
+
               <p><?php echo "SELECT mst_stage.stage As stage,inf_content.content As content,inf_content.biko As biko,mst_people.people As people,inf_content.priority As priority"
                        ." FROM inf_content"
                        ." join mst_stage on inf_content.stageId=mst_stage.id"
@@ -106,7 +110,8 @@ require_once('sql.php');
                <p><?php echo $rowSearch['biko'] ; ?></p>
                <p><?php echo $rowSearch['people'] ; ?></p>
                <p><?php echo $rowSearch['priority'] ; ?></p>
-           <?php } ?>
+           <?php }
+         }?>
 
      </div>
     </div>
