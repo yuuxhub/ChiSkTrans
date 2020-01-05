@@ -11,8 +11,8 @@
     <header>
       <div class="container">
         <div class="header-left">
-          <a href="http://localhost/ChiSkTrans/main.php">
-          <img class="logo" src="http://localhost/ChiSkTrans/img/logo_yoko_resize.png">
+          <a href="https://chisktrans.herokuapp.com/main.php">
+          <img class="logo" src="https://chisktrans.herokuapp.com/img/logo_yoko_resize.png">
         </a>
         </div>
 
