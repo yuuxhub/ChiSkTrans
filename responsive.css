@@ -21,17 +21,26 @@
     width: 100%;
   }
 
+  .header-right {
+    float: right;
+    margin-right: 5px;
+  }
+
+  .header-right a {
+    line-height: 65px;
+    font-size:14px;
+    padding: 0 8px;
+    color: white;
+    display: block;
+    float: left;
+    transition: all 0.5s;
+  }
+
   .btn {
     width: 100%;
 
   }
 
-  .header-right{
-    display:none;
-  }
 
-  .menu-icon{
-    display:block;
-  }
 
 }
