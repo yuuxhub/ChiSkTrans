@@ -77,12 +77,18 @@ include __DIR__ . '/inc/header.php';
            }else{
            while ($rowSearch = $result->fetch_assoc()){
             //取得した連想配列の中身がある場合　→　表示する ?>
+            <!--タイトル-->
             <div class="Search">
-             <p><?php echo $rowSearch['stage'] ; ?></p>
-             <p><?php echo $rowSearch['content'] ; ?></p>
-             <p><?php echo $rowSearch['biko'] ; ?></p>
-             <p><?php echo $rowSearch['people'] ; ?></p>
-             <p><?php echo $rowSearch['priority'] ; ?></p>
+            <div class="<?php echo $rowSearch['stage'];?> todo-Title">
+              <p><?php echo $rowSearch['stage']; ?></p>
+            </div>
+            <!--内容-->
+            <div class = "todo-content">
+             <p>内容　：<?php echo $rowSearch['content'] ; ?></p>
+             <p>備考　：<?php echo $rowSearch['biko'] ; ?></p>
+             <p>対象者：　<?php echo $rowSearch['people'] ; ?></p>
+             <p>重要度：<?php echo $rowSearch['priority'] ; ?></p>
+           </div>
            </div>
       <?php }
     }
