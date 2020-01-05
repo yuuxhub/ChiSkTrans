@@ -22,70 +22,42 @@ a {
   margin: 0 auto;
 }
 
-.Item-wrapper {
+.wrapper {
   padding: 80px 0 100px 0;
+  background-size: cover;
+  text-align: center;
+}
+
+/*----------ラッパーごとの色分け----------*/
+.Item-wrapper {
   background-image: url(http://localhost/img/back.JPG);
 /*背景色の変更  background-color: rgb(255, 213, 213); */
-  background-size: cover;
   color: white;
-  text-align: center;
   opacity: 0.8;
 }
 
 .todo-wrapper {
-  padding: 80px 0 100px 0;
   background-color: rgb(255, 213, 213);
-  background-size: cover;
   color: BLACK;
-  text-align: center;
 }
 
 .search-wrapper {
-  padding: 80px 0 100px 0;
   background-color: rgb(193, 255, 255);
-  background-size: cover;
   color: BLACK;
-  text-align: center;
 }
 
 .input-wrapper {
-  padding: 80px 0 100px 0;
   background-color: rgb(255, 255, 196);
-  background-size: cover;
   color: BLACK;
-  text-align: center;
 }
 
 .login-wrapper {
-  padding: 80px 0 100px 0;
   background-color: rgb(195, 195, 195);
-  background-size: cover;
   color: BLACK;
-  text-align: center;
 }
 
 .login-wrapper p{
   font-size: 80px;
-}
-
-
-.btn {
-  position: relative;
-  display: inline-block;
-  opacity: 0.8;
-}
-
-.btn:hover {
-  opacity: 1;
-}
-
-.btn:hover p{
-  color: white;
-  font-size:40px;
-}
-
-.fa {
-  margin-right: 5px;
 }
 
 .heading {
@@ -96,13 +68,32 @@ a {
 
 .heading h2 {
   font-weight: normal;
-  color : white;
+  color :white ;
 /*背景色変更に伴う文字色変更 color: rgb(150, 75, 0);　*/
 }
 
-.heading span {
-  Color:red;
+.heading h3 {
+  font-weight: normal;
+  color : rgb(34, 49, 52);
+/*背景色変更に伴う文字色変更 color: rgb(150, 75, 0);　*/
 }
+
+.btn{
+  padding: 8px 24px;
+  color: BLACK;
+  display: inline-block;
+  opacity: 0.9;
+  border-radius: 4px;
+  text-align: center;
+  background-color:WHITE;
+}
+
+.btn:hover {
+  opacity: 1;
+  background-color:rgba(34, 49, 52,0.8);
+  color: WHITE;
+}
+
 
 .Item {
   float: left;
@@ -113,17 +104,25 @@ a {
   position: relative;
   width : 75%;
   margin : 0 auto;
-  opacity : 1;
+  opacity : 0.8;
+}
+
+.Item-icon:hover {
+  opacity: 1;
 }
 
 .Item-icon p {
-  //position : relative;
   position: absolute;
   top:30%;
   width: 100%;
   color: white;
 /*背景色変更に伴う文字色変更 color: rgb(150, 75, 0);　*/
   font-size: 30px;
+}
+
+.Item-icon:hover p{
+  color: white;
+  font-size:40px;
 }
 
 .text-contents {
@@ -136,20 +135,17 @@ a {
   opacity: 0.7;
 }
 
-.todo {
-  float: left;
+.todo-Title {
   width: 100%;
+  font-size:30px;
+  height: 40px;
+  margin-bottom:20px;
+  letter-spacing:5px;
 }
 
-.todo Title{
-  float: left;
-  width: 100%;
+.todo-content{
+  text-align: left;
 }
-
-.todo content{
-
-}
-
 
 .form-item {
   margin: 100px auto ;
@@ -157,8 +153,38 @@ a {
   font-weight: bold;
 }
 
+.Stage {
+  margin:0px auto 50px auto;
+  background-color: rgba(255, 255, 255,0.9);
+  color: BLACK;
+  text-align: center;
+  padding: 10px 50px;
+}
 
+/*----------ステージごとの色分け----------*/
 
+.SA {
+  background-color: rgb(255, 255, 187);
+}
+.UI {
+
+  background-color: rgb(219, 219, 255);
+}
+.SS {
+  background-color: rgb(204, 255, 204);
+}
+.PGPT {
+  background-color: rgb(213, 255, 255);
+}
+.IT {
+  background-color: rgb(255, 220, 185);
+}
+.ST {
+  background-color: rgb(224, 224, 224);
+}
+.OT {
+  background-color: rgb(255, 232, 243);
+}
 
 /*----------ヘッダ部----------*/
 
@@ -199,10 +225,6 @@ header {
 }
 
 
-
-/*^^^^^^^^^^ヘッダ部^^^^^^^^^^*/
-
-
 /*----------フッター部----------*/
 
 footer img {
@@ -218,5 +240,3 @@ footer {
   padding-top: 30px;
   padding-bottom: 20px;
 }
-
-/*^^^^^^^^^^フッター部^^^^^^^^^^*/

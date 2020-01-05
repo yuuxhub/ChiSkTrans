@@ -6,8 +6,11 @@ require_once('select.php');
 include __DIR__ . '/inc/header.php';
 ?>
 
-    <div class="search-wrapper">
+    <div class="wrapper search-wrapper">
      <div class="container">
+       <div class="heading">
+         <h3>条件を入力して事例を検索しましょう</h3>
+       </div>
           <?php $mysqli = dbOpen(); ?>
           <form method="post" action="">
 
@@ -25,7 +28,8 @@ include __DIR__ . '/inc/header.php';
 
             <div class="form-item">重要度</div>
             <select name="priority"><?php echo selPriority($mysqli) ?></select>
-                  <input type="submit" value="検索" name="search">
+
+            <input type="submit" value="検索" name="search" class="btn">
 
                   <?php
                     if(!empty($_POST['search'])) { ?>

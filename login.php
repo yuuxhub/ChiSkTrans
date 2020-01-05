@@ -5,7 +5,7 @@ require_once('sql.php');
 include __DIR__ . '/inc/header.php';
 ?>
 
-    <div class="login-wrapper">
+    <div class="login-wrapper wrapper">
       <div class="container">
         <p>準備中</p>
 

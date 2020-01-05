@@ -19,7 +19,7 @@ return $mysqli ;
 }
 
 ////////////////////////////////////////////////////
-//　関数名：dbSelect();　　　※一行のみしか利用できない　
+//　関数名：dbSelect();　　　※１回の実行で一行のみ取得　
 //　役割　：引数のSQL文結果を連想配列として返す
 //　引数　：$sql (文字列)
 //　戻り値：$row（連想配列）
@@ -41,14 +41,14 @@ function dbSelect($sql,$mysqli){
 //　戻り値：$message（文字列）
 //　作成者：Y.Kimura
 ////////////////////////////////////////////////////
-function dbInsert($check,$user,$mysqli){
+function dbCheckInsert($check,$user,$mysqli){
   for($i = 0;$i<count($check);$i++){
   //  echo $check[$i] ;
   //  echo "INSERT INTO inf_check (name,contentId,checkflag) VALUES(\"{$user}\",{$check[$i]},1)" ;
     $sql = "INSERT INTO inf_check (name,contentId,checkflag) VALUES(\"{$user}\",{$check[$i]},1)";
     $result = $mysqli->query($sql);
-}
-    return "登録完了しました" ;
+  }
+    return "登録完了しました。" ;
 }
 
 ?>
