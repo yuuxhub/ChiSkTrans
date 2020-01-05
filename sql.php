@@ -8,7 +8,7 @@
 ////////////////////////////////////////////////////
 
 function dbOpen(){
-$mysqli = new mysqli('us-cdbr-iron-east-05.cleardb.net', 'bbf651b15e21c4', '98d376be', 'knowledge');
+$mysqli = new mysqli('us-cdbr-iron-east-05.cleardb.net', 'bbf651b15e21c4', '98d376be', 'heroku_674d0e9ebaa7868');
 if ($mysqli->connect_error) {
     echo $mysqli->connect_error;
     exit();
