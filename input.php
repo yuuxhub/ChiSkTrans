@@ -39,7 +39,7 @@ include __DIR__ . '/inc/header.php';
             <?php
               if(!empty($_POST['input'])) {
                 //全ての項目が入力されていない場合（！全ての項目入力されている）
-                 if(!(($_POST['stage']!="未選択")&&($_POST['people']!="未選択")&&(!empty($_POST['body']))&&(!empty($_POST['biko']))&&($_POST['people']!="未選択"))){ ?>
+                 if(!(($_POST['stage']!="")&&($_POST['people']!="")&&(!empty($_POST['body']))&&(!empty($_POST['biko']))&&($_POST['priority']!=""))){ ?>
                    <p><?php echo "上記項目を全て入力してください"; ?></p>
               <?php
             }else{

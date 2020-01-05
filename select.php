@@ -10,7 +10,7 @@ require_once('sql.php');
 
 function selStage($mysqli){
 
-echo "<option value=\"未選択\">選択してください</option>";
+echo "<option value=\"\">選択してください</option>";
 
 $sql = "SELECT id As id ,stage As stage from mst_stage";
 $result = $mysqli->query($sql);
@@ -29,7 +29,7 @@ $result = $mysqli->query($sql);
 
 function selPeople($mysqli){
 
-echo "<option value=\"未選択\">選択してください</option>";
+echo "<option value=\"\">選択してください</option>";
 
 $sql = "SELECT id As id ,people As people from mst_people";
 $result = $mysqli->query($sql);
@@ -48,7 +48,7 @@ $result = $mysqli->query($sql);
 
 function selPriority($mysqli){
 
-echo "<option value=\"未選択\">選択してください</option>";
+echo "<option value=\"\">選択してください</option>";
 
 $rowPriority = array(1,2,3,4,5);
   for($i=0;$i<5;$i++){
