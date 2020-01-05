@@ -8,10 +8,31 @@ include __DIR__ . '/inc/header.php';
 
     <div class="wrapper input-wrapper">
      <div class="container">
+      <?php $mysqli = dbOpen(); ?>
        <div class="heading">
          <h3>新たに見つかったナレッジを登録しましょう</h3>
        </div>
-     <?php $mysqli = dbOpen(); ?>
+
+       <!--//入力された内容をDBにINSERTする-->
+    <?php
+      if(!empty($_POST['input'])) {
+        //全ての項目が入力されていない場合（！全ての項目入力されている）
+         if(!(($_POST['stage']!="")&&($_POST['people']!="")&&(!empty($_POST['body']))&&(!empty($_POST['biko']))&&($_POST['priority']!=""))){ ?>
+           <p><?php echo "上記項目を全て入力してください"; ?></p>
+      <?php
+      }else{
+          $sql = "INSERT INTO inf_content (stageId,content,biko,peopleId,priority) VALUES({$_POST['stage']},\"{$_POST['body']}\",\"{$_POST['biko']}\",{$_POST['people']},{$_POST['priority']})";
+          $result = $mysqli->query($sql);
+          //$mysqli->commit();
+          //$_POST['input'] = [] ; ?>
+          <p><?php echo $_POST['stage'],$_POST['body'],$_POST['biko'],$_POST['people'],$_POST['priority'],$_POST['input']; ?></p>
+         <p>登録しました</p>
+         <?php
+       }
+     }
+     ?>
+
+
      <form method="post" action="">
       <div class = Forms>
          <div class="form-item">工程
@@ -24,10 +45,10 @@ include __DIR__ . '/inc/header.php';
          <select name="priority"><?php echo selPriority($mysqli) ?></select></div>
 
          <div class="">内容</div>
-         <textarea name="body" rows="5" class="form-box"></textarea>
+         <textarea name="body" class="form-box"></textarea>
 
          <div class="">備考</div>
-         <textarea name="biko" rows="5" class="form-box"></textarea>
+         <textarea name="biko" class="form-box"></textarea>
 
          <div class="clear"></div>
 
@@ -36,26 +57,6 @@ include __DIR__ . '/inc/header.php';
     </form>
                <p><?php echo $_POST['stage'],$_POST['body'],$_POST['biko'],$_POST['people'],$_POST['priority'],$_POST['input']; ?></p>
                <p><?php echo "INSERT INTO inf_content (stageId,content,biko,peopleId,priority) VALUES({$_POST['stage']},\"{$_POST['body']}\",\"{$_POST['biko']}\",{$_POST['people']},{$_POST['priority']})" ; ?></p>
-
-               <!--//入力された内容をDBにINSERTする-->
-            <?php
-              if(!empty($_POST['input'])) {
-                //全ての項目が入力されていない場合（！全ての項目入力されている）
-                 if(!(($_POST['stage']!="")&&($_POST['people']!="")&&(!empty($_POST['body']))&&(!empty($_POST['biko']))&&($_POST['priority']!=""))){ ?>
-                   <p><?php echo "上記項目を全て入力してください"; ?></p>
-              <?php
-            }else{
-                $sql = "INSERT INTO inf_content (stageId,content,biko,peopleId,priority) VALUES({$_POST['stage']},\"{$_POST['body']}\",\"{$_POST['biko']}\",{$_POST['people']},{$_POST['priority']})";
-                $result = $mysqli->query($sql);
-                //$mysqli->commit();
-                //$_POST['input'] = [] ; ?>
-                <p><?php echo $_POST['stage'],$_POST['body'],$_POST['biko'],$_POST['people'],$_POST['priority'],$_POST['input']; ?></p>
-               <p>登録しました</p>
-               <?php
-             }
-         }
-             ?>
-
 
 
     <?php $mysqli->close(); ?>

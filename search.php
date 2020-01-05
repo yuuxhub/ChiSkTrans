@@ -84,10 +84,10 @@ include __DIR__ . '/inc/header.php';
             </div>
             <!--内容-->
             <div class = "todo-content">
-             <p>内容　：<?php echo $rowSearch['content'] ; ?></p>
-             <p>備考　：<?php echo $rowSearch['biko'] ; ?></p>
+             <p>内容　：　<?php echo $rowSearch['content'] ; ?></p>
+             <p>備考　：　<?php echo $rowSearch['biko'] ; ?></p>
              <p>対象者：　<?php echo $rowSearch['people'] ; ?></p>
-             <p>重要度：<?php echo $rowSearch['priority'] ; ?></p>
+             <p>重要度：　<?php for($i=0;$i<$rowSearch['priority'];$i++) echo "★" ; ?></p>
            </div>
            </div>
       <?php }

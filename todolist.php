@@ -12,7 +12,20 @@ include __DIR__ . '/inc/header.php';
         <div class="heading">
           <h3>完了した項目にチェックしていきましょう</h3>
         </div>
-        <form action ="" method = "POST">
+
+        <?php
+        //チェックボックスの内容をDBにINSERTする
+        if(!empty($_POST['input'])) {
+          if(!empty($_POST['checkDb'])) { ?>
+            <p><?php echo dbCheckInsert($_POST['checkDb'],"admin",$mysqli) ?></p>
+          <?php }else{
+            echo "<p>チェックが入っていません。</p>";
+          }
+       }
+
+         ?>
+
+        <form action ="todolist.php" method = "POST">
           <?php
             //チェックボックスリストの初期化
             $checkDb = array();
@@ -50,15 +63,6 @@ include __DIR__ . '/inc/header.php';
       　</form>
 
             <?php
-            //チェックボックスの内容をDBにINSERTする
-              if(!empty($_POST['input'])) {
-                if(!empty($_POST['checkDb'])) { ?>
-                  <p><?php echo dbCheckInsert($_POST['checkDb'],"admin",$mysqli) ?></p>
-                <?php }else{
-                  echo "<p>チェックが入っていません。</p>";
-                }
-             }
-
             // DB接続を閉じる
             $mysqli->close(); ?>
     </div>
