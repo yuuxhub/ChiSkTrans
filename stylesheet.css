@@ -34,7 +34,7 @@ a {
 
 /*----------ラッパーごとの色分け----------*/
 .Item-wrapper {
-  background-image: url(http://localhost/img/back.JPG);
+  background-image: url(http://localhost/ChiSkTrans/img/back.JPG);
 /*背景色の変更  background-color: rgb(255, 213, 213); */
   color: white;
   opacity: 0.8;
