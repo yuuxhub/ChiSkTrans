@@ -148,9 +148,10 @@ a {
 }
 
 .form-item {
-  margin: 100px auto ;
+  margin: 20px 10px ;
   padding: 20px 0 10px 0;
   font-weight: bold;
+  display: inline-block;
 }
 
 .Stage {
@@ -167,6 +168,18 @@ a {
   color: BLACK;
   text-align: center;
   padding: 10px 50px;
+}
+
+.Forms {
+  margin:0px auto;
+  padding-bottom: 30px;
+  background-color: rgba(255, 255, 255,0.9);
+}
+
+.form-box{
+  width:70%;
+  margin: 20px 10px ;
+  padding: 20px 0 10px 0;
 }
 
 /*----------ステージごとの色分け----------*/

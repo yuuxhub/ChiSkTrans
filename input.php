@@ -11,27 +11,29 @@ include __DIR__ . '/inc/header.php';
        <div class="heading">
          <h3>新たに見つかったナレッジを登録しましょう</h3>
        </div>
-       <?php $mysqli = dbOpen(); ?>
-       <form method="post" action="">
+     <?php $mysqli = dbOpen(); ?>
+     <form method="post" action="">
+      <div class = Forms>
+         <div class="form-item">工程
+          <select name="stage"><?php  selStage($mysqli); ?></select></div>
 
-               <div class="form-item">工程</div>
-                <select name="stage"><?php  selStage($mysqli); ?></select>
+         <div class="form-item">対象者
+          <select name="people"><?php  selPeople($mysqli); ?></select></div>
 
-               <div class="form-item">対象者</div>
-                <select name="people"><?php  selPeople($mysqli); ?></select>
+         <div class="form-item">重要度
+         <select name="priority"><?php echo selPriority($mysqli) ?></select></div>
 
-               <div class="form-item">内容</div>
-               <textarea name="body"></textarea>
+         <div class="">内容</div>
+         <textarea name="body" rows="5" class="form-box"></textarea>
 
-               <div class="form-item">備考</div>
-               <textarea name="biko"></textarea>
+         <div class="">備考</div>
+         <textarea name="biko" rows="5" class="form-box"></textarea>
 
-               <div class="form-item">重要度</div>
-               <select name="priority"><?php echo selPriority($mysqli) ?></select>
+         <div class="clear"></div>
 
-
-               <input type="submit" value="追加" name="input" class="btn">
-
+         <input type="submit" value="追加" name="input" class="btn">
+      </div>
+    </form>
                <p><?php echo $_POST['stage'],$_POST['body'],$_POST['biko'],$_POST['people'],$_POST['priority'],$_POST['input']; ?></p>
                <p><?php echo "INSERT INTO inf_content (stageId,content,biko,peopleId,priority) VALUES({$_POST['stage']},\"{$_POST['body']}\",\"{$_POST['biko']}\",{$_POST['people']},{$_POST['priority']})" ; ?></p>
 
@@ -54,7 +56,7 @@ include __DIR__ . '/inc/header.php';
          }
              ?>
 
-      </form>
+
 
     <?php $mysqli->close(); ?>
 
