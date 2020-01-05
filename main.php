@@ -12,7 +12,7 @@
             <p class="text-contents">PJの節目でチェック</p>
             <div class="Item-icon">
               <a href="todolist.php" class="">
-              <img src="http://localhost/img/TodoList.png">
+              <img src="https://chisktrans.herokuapp.com/img/TodoList.png">
               <p>TodoList</p>
               </a>
             </div>
@@ -21,7 +21,7 @@
             <p class="text-contents">気になる事例を検索</p>
             <div class="Item-icon">
               <a href=search.php class="">
-              <img src="http://localhost/img/Search.png">
+              <img src="https://chisktrans.herokuapp.com/img/Search.png">
               <p>Search</p>
               </a>
             </div>
@@ -30,7 +30,7 @@
             <p class="text-contents">新たな事例を登録</p>
             <div class="Item-icon">
               <a href="input.php" class="">
-              <img src="http://localhost/img/Input.png">
+              <img src="https://chisktrans.herokuapp.com/img/Input.png">
               <p>Input</p>
               </a>
             </div>
