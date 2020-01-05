@@ -25,7 +25,7 @@ include __DIR__ . '/inc/header.php';
           $result = $mysqli->query($sql);
           //$mysqli->commit();
           //$_POST['input'] = [] ; ?>
-          <p><?php echo $_POST['stage'],$_POST['body'],$_POST['biko'],$_POST['people'],$_POST['priority'],$_POST['input']; ?></p>
+      <!--    <p><?php echo $_POST['stage'],$_POST['body'],$_POST['biko'],$_POST['people'],$_POST['priority'],$_POST['input']; ?></p>  -->
          <p>登録しました</p>
          <?php
        }
@@ -55,8 +55,8 @@ include __DIR__ . '/inc/header.php';
          <input type="submit" value="追加" name="input" class="btn">
       </div>
     </form>
-               <p><?php echo $_POST['stage'],$_POST['body'],$_POST['biko'],$_POST['people'],$_POST['priority'],$_POST['input']; ?></p>
-               <p><?php echo "INSERT INTO inf_content (stageId,content,biko,peopleId,priority) VALUES({$_POST['stage']},\"{$_POST['body']}\",\"{$_POST['biko']}\",{$_POST['people']},{$_POST['priority']})" ; ?></p>
+            <!--   <p><?php echo $_POST['stage'],$_POST['body'],$_POST['biko'],$_POST['people'],$_POST['priority'],$_POST['input']; ?></p>  -->
+            <!--   <p><?php echo "INSERT INTO inf_content (stageId,content,biko,peopleId,priority) VALUES({$_POST['stage']},\"{$_POST['body']}\",\"{$_POST['biko']}\",{$_POST['people']},{$_POST['priority']})" ; ?></p>  -->
 
 
     <?php $mysqli->close(); ?>

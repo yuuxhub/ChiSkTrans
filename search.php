@@ -55,14 +55,14 @@ include __DIR__ . '/inc/header.php';
           if(!empty($_POST['people']))
                 $sql .=" AND mst_people.Id={$_POST['people']}" ;
           if(!empty($_POST['body']))
-                $sql .=" AND inf_content.content LIKE \"%{$_POST['body']}%\"" ;
+                $sql .=" AND inf_content.content LIKE '%{$_POST['body']}%'";
           if(!empty($_POST['biko']))
-                $sql .=" AND inf_content.biko LIKE \"%{$_POST['biko']}%\"" ;
+                $sql .=" AND inf_content.biko LIKE '%{$_POST['biko']}%'";
           if(!empty($_POST['priority']))
                 $sql .=" AND inf_content.priority={$_POST['priority']}" ;
               $sql .=" order by inf_content.id asc";
 
-            echo "<p>$sql</p>"; ?>
+          //  echo "<p>$sql</p>"; ?>
 
 
         <div class="heading">
@@ -71,12 +71,14 @@ include __DIR__ . '/inc/header.php';
 
       <?php
        $result = $mysqli->query($sql);
+    //   echo var_dump($result);
            //取得した連想配列の中身がない場合
            if(!$result->fetch_assoc()){
               echo "<p>検索結果がありませんでした</p>" ;
            }else{
            while ($rowSearch = $result->fetch_assoc()){
-            //取得した連想配列の中身がある場合　→　表示する ?>
+            //取得した連想配列の中身がある場合　→　表示する
+          //  echo var_dump($rowSearch); ?>
             <!--タイトル-->
             <div class="Search">
             <div class="<?php echo $rowSearch['stage'];?> todo-Title">
