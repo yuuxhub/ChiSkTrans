@@ -8,7 +8,7 @@
 ////////////////////////////////////////////////////
 
 function dbOpen(){
-$mysqli = new mysqli('localhost', 'root', 'chiiI2020', 'knowledge');
+$mysqli = new mysqli('us-cdbr-iron-east-05.cleardb.net', 'bbf651b15e21c4', '98d376be', 'knowledge');
 if ($mysqli->connect_error) {
     echo $mysqli->connect_error;
     exit();
